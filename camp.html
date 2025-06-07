@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créer une campagne - InfluConnect Togo</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#5E17EB',secondary:'#FF6B35'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9fc;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  display: none;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Nav Bar -->
+<nav class="fixed top-0 w-full bg-white shadow-sm z-50 px-4 py-3 flex items-center justify-between">
+  <div class="flex items-center">
+    <a href="https://readdy.ai/home/4102fa55-3cdf-45b7-bcb0-6c85489873f2/f13aad86-8aca-4e81-906c-2c11b626196d" data-readdy="true" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 mr-3 cursor-pointer">
+      <i class="ri-arrow-left-s-line text-gray-600"></i>
+    </a>
+    <span class="font-['Pacifico'] text-primary text-xl">logo</span>
+  </div>
+  <div class="flex items-center space-x-3">
+    <div class="w-8 h-8 flex items-center justify-center cursor-pointer">
+      <i class="ri-notification-3-line text-gray-600 ri-lg"></i>
+    </div>
+    <div class="w-8 h-8 flex items-center justify-center cursor-pointer">
+      <i class="ri-message-3-line text-gray-600 ri-lg"></i>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="pt-16 pb-28 px-4">
+  <div class="mt-4 mb-6">
+    <h1 class="text-2xl font-semibold text-gray-800">Créer une campagne</h1>
+    <p class="text-sm text-gray-600 mt-1">Définissez les détails de votre campagne marketing pour attirer les meilleurs influenceurs</p>
+  </div>
+
+  <form id="campaign-form">
+    <!-- Informations de base -->
+    <div class="mb-6">
+      <h2 class="text-lg font-medium text-gray-800 mb-3">Informations de base</h2>
+      <div class="space-y-4">
+        <div>
+          <label for="campaign-title" class="block text-sm font-medium text-gray-700 mb-1">Titre de la campagne*</label>
+          <input type="text" id="campaign-title" name="campaign-title" placeholder="Ex: Lancement de la collection été 2025" class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+        </div>
+        <div>
+          <label for="campaign-description" class="block text-sm font-medium text-gray-700 mb-1">Description*</label>
+          <textarea id="campaign-description" name="campaign-description" rows="4" placeholder="Décrivez votre campagne, vos objectifs et ce que vous attendez des influenceurs..." class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm resize-none" required></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Détails de la campagne -->
+    <div class="mb-6">
+      <h2 class="text-lg font-medium text-gray-800 mb-3">Détails de la campagne</h2>
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="campaign-budget-min" class="block text-sm font-medium text-gray-700 mb-1">Budget minimum (FCFA)*</label>
+            <input type="number" id="campaign-budget-min" name="campaign-budget-min" placeholder="Ex: 50000" class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+          </div>
+          <div>
+            <label for="campaign-budget-max" class="block text-sm font-medium text-gray-700 mb-1">Budget maximum (FCFA)*</label>
+            <input type="number" id="campaign-budget-max" name="campaign-budget-max" placeholder="Ex: 200000" class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="campaign-start-date" class="block text-sm font-medium text-gray-700 mb-1">Date de début*</label>
+            <input type="date" id="campaign-start-date" name="campaign-start-date" class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+          </div>
+          <div>
+            <label for="campaign-duration" class="block text-sm font-medium text-gray-700 mb-1">Durée (jours)*</label>
+            <input type="number" id="campaign-duration" name="campaign-duration" placeholder="Ex: 14" class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm" required>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Critères des influenceurs -->
+    <div class="mb-6">
+      <h2 class="text-lg font-medium text-gray-800 mb-3">Critères des influenceurs</h2>
+      <div class="space-y-4">
+        <div>
+          <label for="campaign-requirements" class="block text-sm font-medium text-gray-700 mb-1">Exigences pour les influenceurs*</label>
+          <textarea id="campaign-requirements" name="campaign-requirements" rows="3" placeholder="Ex: Minimum 10K abonnés, expérience dans la mode, basé au Togo..." class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm resize-none" required></textarea>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Catégorie*</label>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="relative">
+              <input type="radio" id="cat-mode" name="category" value="Mode" class="absolute opacity-0 w-full h-full cursor-pointer">
+              <label for="cat-mode" class="block px-3 py-2 bg-white border border-gray-200 rounded-lg text-center text-sm cursor-pointer hover:bg-gray-50 peer-checked:border-primary peer-checked:bg-primary/5">Mode</label>
+            </div>
+            <div class="relative">
+              <input type="radio" id="cat-cuisine" name="category" value="Cuisine" class="absolute opacity-0 w-full h-full cursor-pointer">
+              <label for="cat-cuisine" class="block px-3 py-2 bg-white border border-gray-200 rounded-lg text-center text-sm cursor-pointer hover:bg-gray-50 peer-checked:border-primary peer-checked:bg-primary/5">Cuisine</label>
+            </div>
+            <div class="relative">
+              <input type="radio" id="cat-tech" name="category" value="Tech" class="absolute opacity-0 w-full h-full cursor-pointer">
+              <label for="cat-tech" class="block px-3 py-2 bg-white border border-gray-200 rounded-lg text-center text-sm cursor-pointer hover:bg-gray-50 peer-checked:border-primary peer-checked:bg-primary/5">Tech</label>
+            </div>
+            <div class="relative">
+              <input type="radio" id="cat-fitness" name="category" value="Fitness" class="absolute opacity-0 w-full h-full cursor-pointer">
+              <label for="cat-fitness" class="block px-3 py-2 bg-white border border-gray-200 rounded-lg text-center text-sm cursor-pointer hover:bg-gray-50 peer-checked:border-primary peer-checked:bg-primary/5">Fitness</label>
+            </div>
+            <div class="relative">
+              <input type="radio" id="cat-beaute" name="category" value="Beauté" class="absolute opacity-0 w-full h-full cursor-pointer">
+              <label for="cat-beaute" class="block px-3 py-2 bg-white border border-gray-200 rounded-lg text-center text-sm cursor-pointer hover:bg-gray-50 peer-checked:border-primary peer-checked:bg-primary/5">Beauté</label>
+            </div>
+            <div class="relative">
+              <input type="radio" id="cat-autre" name="category" value="Autre" class="absolute opacity-0 w-full h-full cursor-pointer">
+              <label for="cat-autre" class="block px-3 py-2 bg-white border border-gray-200 rounded-lg text-center text-sm cursor-pointer hover:bg-gray-50 peer-checked:border-primary peer-checked:bg-primary/5">Autre</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plateformes sociales -->
+    <div class="mb-6">
+      <h2 class="text-lg font-medium text-gray-800 mb-3">Plateformes sociales ciblées</h2>
+      <div class="space-y-3">
+        <div class="flex items-center">
+          <input type="checkbox" id="platform-instagram" name="platforms" value="Instagram" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+          <label for="platform-instagram" class="ml-2 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-instagram-line text-[#E1306C]"></i>
+            </div>
+            <span class="text-sm text-gray-700">Instagram</span>
+          </label>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" id="platform-tiktok" name="platforms" value="TikTok" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+          <label for="platform-tiktok" class="ml-2 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-tiktok-line text-[#000000]"></i>
+            </div>
+            <span class="text-sm text-gray-700">TikTok</span>
+          </label>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" id="platform-youtube" name="platforms" value="YouTube" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+          <label for="platform-youtube" class="ml-2 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-youtube-line text-[#FF0000]"></i>
+            </div>
+            <span class="text-sm text-gray-700">YouTube</span>
+          </label>
+        </div>
+        <div class="flex items-center">
+          <input type="checkbox" id="platform-facebook" name="platforms" value="Facebook" class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary">
+          <label for="platform-facebook" class="ml-2 flex items-center">
+            <div class="w-6 h-6 flex items-center justify-center mr-2">
+              <i class="ri-facebook-line text-[#1877F2]"></i>
+            </div>
+            <span class="text-sm text-gray-700">Facebook</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Images -->
+    <div class="mb-8">
+      <h2 class="text-lg font-medium text-gray-800 mb-3">Images de la campagne</h2>
+      <div class="space-y-4">
+        <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+          <input type="file" id="campaign-images" name="campaign-images" accept="image/*" multiple class="custom-file-input hidden">
+          <label for="campaign-images" class="cursor-pointer">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-2">
+              <i class="ri-image-add-line text-primary ri-xl"></i>
+            </div>
+            <p class="text-sm font-medium text-gray-700">Ajouter des images</p>
+            <p class="text-xs text-gray-500 mt-1">JPG, PNG • Max 5 MB</p>
+          </label>
+        </div>
+        <div id="image-preview" class="grid grid-cols-3 gap-2 hidden">
+          <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+            <img src="https://readdy.ai/api/search-image?query=professional%2520product%2520photography%2520of%2520colorful%2520African%2520fashion%2520clothing%2520items%2520on%2520white%2520background%252C%2520clean%2520commercial%2520style%252C%2520high-end%2520retail%2520presentation%252C%2520studio%2520lighting%252C%2520high%2520resolution%2520product%2520showcase%252C%2520detailed%2520fabric%2520textures%2520visible%252C%2520professional%2520composition&width=150&height=150&seq=20&orientation=squarish" alt="Aperçu" class="w-full h-full object-cover">
+            <button type="button" class="absolute top-1 right-1 w-6 h-6 bg-black/50 rounded-full flex items-center justify-center">
+              <i class="ri-close-line text-white ri-sm"></i>
+            </button>
+          </div>
+          <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden">
+            <img src="https://readdy.ai/api/search-image?query=professional%2520product%2520photography%2520of%2520colorful%2520African%2520fashion%2520accessories%2520on%2520white%2520background%252C%2520clean%2520commercial%2520style%252C%2520high-end%2520retail%2520presentation%252C%2520studio%2520lighting%252C%2520high%2520resolution%2520product%2520showcase%252C%2520detailed%2520textures%2520visible%252C%2520professional%2520composition&width=150&height=150&seq=21&orientation=squarish" alt="Aperçu" class="w-full h-full object-cover">
+            <button type="button" class="absolute top-1 right-1 w-6 h-6 bg-black/50 rounded-full flex items-center justify-center">
+              <i class="ri-close-line text-white ri-sm"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estimation des crédits -->
+    <div class="bg-primary/5 rounded-lg p-4 mb-8">
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="font-semibold text-gray-800">Estimation des crédits</h3>
+        <div class="flex items-center">
+          <span class="text-lg font-bold text-primary">15</span>
+          <div class="w-5 h-5 flex items-center justify-center ml-1 cursor-pointer" id="credit-info">
+            <i class="ri-information-line text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-2 mb-3">
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Création de campagne</span>
+          <span class="font-medium text-gray-700">5 crédits</span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-gray-600">Visibilité premium (7 jours)</span>
+          <span class="font-medium text-gray-700">10 crédits</span>
+        </div>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-gray-600">Solde actuel</span>
+        <span class="font-medium text-gray-700">25 crédits</span>
+      </div>
+    </div>
+
+    <!-- Boutons d'action -->
+    <div class="flex space-x-3">
+      <button type="button" id="preview-button" class="flex-1 py-3 bg-white border border-primary text-primary font-medium text-sm rounded-lg !rounded-button">Prévisualiser</button>
+      <button type="submit" id="publish-button" class="flex-1 py-3 bg-primary text-white font-medium text-sm rounded-lg !rounded-button">Publier la campagne</button>
+    </div>
+  </form>
+</main>
+
+<!-- Tab Bar -->
+<div class="fixed bottom-0 w-full bg-white border-t border-gray-200 px-2 py-1.5 grid grid-cols-5 z-50">
+  <a href="https://readdy.ai/home/4102fa55-3cdf-45b7-bcb0-6c85489873f2/f13aad86-8aca-4e81-906c-2c11b626196d" data-readdy="true" class="flex flex-col items-center justify-center cursor-pointer">
+    <div class="w-6 h-6 flex items-center justify-center">
+      <i class="ri-home-5-line text-gray-500 ri-lg"></i>
+    </div>
+    <span class="text-xs text-gray-500 mt-1">Accueil</span>
+  </a>
+  <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+    <div class="w-6 h-6 flex items-center justify-center">
+      <i class="ri-search-line text-gray-500 ri-lg"></i>
+    </div>
+    <span class="text-xs text-gray-500 mt-1">Explorer</span>
+  </a>
+  <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+    <div class="w-10 h-10 bg-primary rounded-full -mt-5 flex items-center justify-center shadow-lg">
+      <i class="ri-add-line text-white ri-lg"></i>
+    </div>
+  </a>
+  <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+    <div class="w-6 h-6 flex items-center justify-center">
+      <i class="ri-message-3-line text-gray-500 ri-lg"></i>
+    </div>
+    <span class="text-xs text-gray-500 mt-1">Messages</span>
+  </a>
+  <a href="#" class="flex flex-col items-center justify-center cursor-pointer">
+    <div class="w-6 h-6 flex items-center justify-center">
+      <i class="ri-user-line text-gray-500 ri-lg"></i>
+    </div>
+    <span class="text-xs text-gray-500 mt-1">Profil</span>
+  </a>
+</div>
+
+<!-- Scripts -->
+<script id="form-interaction-script">
+document.addEventListener('DOMContentLoaded', function() {
+  // Show image preview
+  const imageInput = document.getElementById('campaign-images');
+  const imagePreview = document.getElementById('image-preview');
+  
+  imageInput.addEventListener('change', function() {
+    if (this.files && this.files.length > 0) {
+      imagePreview.classList.remove('hidden');
+    }
+  });
+  
+  // Handle image removal
+  const removeButtons = document.querySelectorAll('#image-preview button');
+  removeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const imageContainer = this.parentElement;
+      imageContainer.remove();
+      
+      if (document.querySelectorAll('#image-preview > div').length === 0) {
+        imagePreview.classList.add('hidden');
+      }
+    });
+  });
+  
+  // Category selection
+  const categoryInputs = document.querySelectorAll('input[name="category"]');
+  categoryInputs.forEach(input => {
+    input.addEventListener('change', function() {
+      document.querySelectorAll('input[name="category"] + label').forEach(label => {
+        label.classList.remove('border-primary', 'bg-primary/5');
+        label.classList.add('border-gray-200', 'bg-white');
+      });
+      
+      if (this.checked) {
+        const label = document.querySelector(`label[for="${this.id}"]`);
+        label.classList.remove('border-gray-200', 'bg-white');
+        label.classList.add('border-primary', 'bg-primary/5');
+      }
+    });
+  });
+  
+  // Credit info tooltip
+  const creditInfo = document.getElementById('credit-info');
+  creditInfo.addEventListener('click', function() {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+    tooltip.innerHTML = `
+      <div class="bg-white rounded-lg w-full max-w-xs p-4">
+        <h3 class="font-semibold text-gray-800 mb-2">À propos des crédits</h3>
+        <p class="text-sm text-gray-600 mb-3">Les crédits sont utilisés pour publier des campagnes et contacter des influenceurs. Différentes actions nécessitent différents nombres de crédits.</p>
+        <ul class="text-sm text-gray-600 space-y-1 mb-4">
+          <li class="flex justify-between">
+            <span>Création de campagne</span>
+            <span class="font-medium">5 crédits</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Visibilité premium</span>
+            <span class="font-medium">10 crédits</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Contacter un influenceur</span>
+            <span class="font-medium">2-5 crédits</span>
+          </li>
+        </ul>
+        <button class="w-full py-2 bg-primary text-white font-medium text-sm rounded-lg !rounded-button">Compris</button>
+      </div>
+    `;
+    document.body.appendChild(tooltip);
+    
+    // Close tooltip
+    tooltip.addEventListener('click', function(e) {
+      if (e.target === tooltip || e.target.closest('button')) {
+        document.body.removeChild(tooltip);
+      }
+    });
+  });
+  
+  // Preview button
+  const previewButton = document.getElementById('preview-button');
+  previewButton.addEventListener('click', function() {
+    const title = document.getElementById('campaign-title').value || 'Titre de la campagne';
+    const description = document.getElementById('campaign-description').value || 'Description de la campagne...';
+    const budgetMin = document.getElementById('campaign-budget-min').value || '50000';
+    const budgetMax = document.getElementById('campaign-budget-max').value || '200000';
+    
+    // Get selected category
+    let selectedCategory = 'Non spécifiée';
+    document.querySelectorAll('input[name="category"]').forEach(input => {
+      if (input.checked) {
+        selectedCategory = input.value;
+      }
+    });
+    
+    // Get selected platforms
+    const selectedPlatforms = [];
+    document.querySelectorAll('input[name="platforms"]:checked').forEach(input => {
+      selectedPlatforms.push(input.value);
+    });
+    
+    const previewModal = document.createElement('div');
+    previewModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+    previewModal.innerHTML = `
+      <div class="bg-white rounded-lg w-full max-w-md max-h-[80vh] overflow-y-auto">
+        <div class="h-48 bg-primary/10 relative flex items-center justify-center">
+          ${imagePreview.classList.contains('hidden') ? 
+            `<div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+              <i class="ri-image-line text-white ri-2x"></i>
+            </div>` : 
+            `<img src="${document.querySelector('#image-preview img').src}" alt="Aperçu" class="w-full h-full object-cover">`
+          }
+          <button class="absolute top-3 left-3 w-8 h-8 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center">
+            <i class="ri-arrow-left-s-line text-white"></i>
+          </button>
+        </div>
+        <div class="p-4">
+          <div class="flex items-center mb-2">
+            <span class="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full">${selectedCategory}</span>
+            <span class="ml-2 text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Nouveau</span>
+          </div>
+          <h2 class="font-semibold text-xl text-gray-800 mb-2">${title}</h2>
+          <p class="text-sm text-gray-600 mb-4">${description}</p>
+          <div class="mb-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Détails de la campagne</h3>
+            <div class="space-y-2">
+              <div class="flex justify-between">
+                <span class="text-sm text-gray-500">Budget</span>
+                <span class="text-sm font-medium text-gray-800">${budgetMin} - ${budgetMax} FCFA</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-sm text-gray-500">Durée</span>
+                <span class="text-sm font-medium text-gray-800">${document.getElementById('campaign-duration').value || '14'} jours</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-sm text-gray-500">Date de début</span>
+                <span class="text-sm font-medium text-gray-800">${document.getElementById('campaign-start-date').value || '07/06/2025'}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-sm text-gray-500">Plateformes</span>
+                <span class="text-sm font-medium text-gray-800">${selectedPlatforms.length > 0 ? selectedPlatforms.join(', ') : 'Non spécifiées'}</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <h3 class="font-semibold text-gray-800 mb-2">Exigences</h3>
+            <p class="text-sm text-gray-600">${document.getElementById('campaign-requirements').value || 'Aucune exigence spécifiée'}</p>
+          </div>
+          <button class="w-full py-2.5 bg-gray-200 text-gray-700 font-medium text-sm rounded-lg !rounded-button mb-3">Modifier la campagne</button>
+          <button class="w-full py-2.5 bg-primary text-white font-medium text-sm rounded-lg !rounded-button">Publier la campagne</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(previewModal);
+    
+    // Close modal
+    previewModal.addEventListener('click', function(e) {
+      if (e.target === previewModal || e.target.closest('button.absolute.top-3.left-3') || e.target.closest('button.w-full.py-2\\.5.bg-gray-200')) {
+        document.body.removeChild(previewModal);
+      }
+      
+      if (e.target.closest('button.w-full.py-2\\.5.bg-primary')) {
+        document.body.removeChild(previewModal);
+        document.getElementById('publish-button').click();
+      }
+    });
+  });
+  
+  // Form submission
+  const campaignForm = document.getElementById('campaign-form');
+  campaignForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show success modal
+    const successModal = document.createElement('div');
+    successModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+    successModal.innerHTML = `
+      <div class="bg-white rounded-lg w-full max-w-xs p-5 text-center">
+        <div class="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
+          <i class="ri-check-line text-green-500 ri-3x"></i>
+        </div>
+        <h3 class="font-semibold text-xl text-gray-800 mb-2">Campagne publiée !</h3>
+        <p class="text-sm text-gray-600 mb-6">Votre campagne a été publiée avec succès. Les influenceurs peuvent maintenant la consulter et y postuler.</p>
+        <div class="space-y-3">
+          <a href="https://readdy.ai/home/4102fa55-3cdf-45b7-bcb0-6c85489873f2/f13aad86-8aca-4e81-906c-2c11b626196d" data-readdy="true" class="block w-full py-2.5 bg-primary text-white font-medium text-sm rounded-lg !rounded-button">Retour à l'accueil</a>
+          <button class="w-full py-2.5 bg-white border border-gray-200 text-gray-700 font-medium text-sm rounded-lg !rounded-button">Voir ma campagne</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(successModal);
+    
+    // Close modal
+    successModal.addEventListener('click', function(e) {
+      if (e.target === successModal) {
+        document.body.removeChild(successModal);
+      }
+      
+      if (e.target.closest('button.w-full.py-2\\.5.bg-white')) {
+        document.body.removeChild(successModal);
+        // Redirect to campaign details page (would normally go here)
+      }
+    });
+  });
+});
+</script>
+
+<script id="tab-navigation-script">
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.fixed.bottom-0 a');
+  
+  tabButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      if (!this.getAttribute('data-readdy')) {
+        e.preventDefault();
+      }
+      
+      // Remove active class from all buttons
+      tabButtons.forEach(btn => {
+        const icon = btn.querySelector('i');
+        const text = btn.querySelector('span');
+        if (icon) icon.classList.replace('text-primary', 'text-gray-500');
+        if (text) text.classList.replace('text-primary', 'text-gray-500');
+        // Change fill to line for icons
+        if (icon && icon.classList.contains('ri-home-5-fill')) {
+          icon.classList.replace('ri-home-5-fill', 'ri-home-5-line');
+        }
+      });
+      
+      // Add active class to clicked button
+      const clickedIcon = this.querySelector('i');
+      const clickedText = this.querySelector('span');
+      if (clickedIcon && !clickedIcon.closest('.w-10.h-10.bg-primary')) {
+        clickedIcon.classList.replace('text-gray-500', 'text-primary');
+      }
+      if (clickedText) clickedText.classList.replace('text-gray-500', 'text-primary');
+      // Change line to fill for home icon
+      if (clickedIcon && clickedIcon.classList.contains('ri-home-5-line')) {
+        clickedIcon.classList.replace('ri-home-5-line', 'ri-home-5-fill');
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
